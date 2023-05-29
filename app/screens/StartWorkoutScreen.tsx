@@ -1,5 +1,5 @@
 import {View} from "react-native";
-import commonStyles from "../CommonStyles";
+import commonStyles from "../components/CommonStyles";
 
 function StartWorkoutScreen(){
     return(
