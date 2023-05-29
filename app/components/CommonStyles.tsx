@@ -5,5 +5,8 @@ const commonStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff'
     },
+    button: {
+        backgroundColor: 'green'
+    }
 });
-export default commonStyles;
+export default commonStyles
