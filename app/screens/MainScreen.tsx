@@ -1,6 +1,6 @@
 import {Alert, Button, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
-import commonStyles, {buttonColor} from "../components/CommonStyles";
+import commonStyles from "../components/CommonStyles";
 import GreyLine from "../components/CommonComponents";
 
 function MainScreen() {
@@ -15,6 +15,7 @@ const handleStartWorkoutButtonPress = () => Alert.alert(
             <SafeAreaView>
                 <Text style={localStyles.myHubName}>My Hub</Text>
                 <GreyLine/>
+                {/* TODO: make button look decent */}
                 <TouchableOpacity style={[commonStyles.button, localStyles.startWorkoutButton]} onPress={handleStartWorkoutButtonPress}>
                     <Text>Start Workout</Text>
                 </TouchableOpacity>

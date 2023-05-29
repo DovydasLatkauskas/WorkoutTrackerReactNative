@@ -6,7 +6,7 @@ const commonStyles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     button: {
-        backgroundColor: 'green'
+        backgroundColor: 'limegreen'
     }
 });
 export default commonStyles
