@@ -10,7 +10,7 @@ function ExercisesScreen(){
 
     return(
         <ScrollView style={[commonStyles.container, localStyles.container]}>
-            <Text style={commonStyles.topBar}>Workout</Text>
+            <Text style={commonStyles.topBar}>Your Exercises</Text>
             <GreyLine/>
             <View style={{alignItems:"center"}}>
                 <TouchableOpacity style={[commonStyles.button, localStyles.exerciseTouchable]} onPress={handleAddExerciseButtonPress}>
