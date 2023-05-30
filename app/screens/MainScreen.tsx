@@ -3,11 +3,15 @@ import {StatusBar} from "expo-status-bar";
 import commonStyles from "../components/CommonStyles";
 import GreyLine from "../components/CommonComponents";
 
-function MainScreen() {
-// const handleStartWorkoutButtonPress = () => StartWorkoutScreen()
-const handleStartWorkoutButtonPress = () => Alert.alert(
-    "Start Workout", "should take you to the workout screen",
-    [{text:"ok"}]) // temporary stand-in
+interface MainScreenProps {
+    navigation: any;
+}
+
+function MainScreen(props:MainScreenProps){
+const handleStartWorkoutButtonPress = () => props.navigation.navigate("Start Workout")
+// const handleStartWorkoutButtonPress = () => Alert.alert(
+//     "Start Workout", "should take you to the workout screen",
+//     [{text:"ok"}]) // temporary stand-in
 
     return (
         <View style={commonStyles.container}>
@@ -17,7 +21,7 @@ const handleStartWorkoutButtonPress = () => Alert.alert(
                 <GreyLine/>
                 {/* TODO: make button look decent */}
                 <TouchableOpacity style={[commonStyles.button, localStyles.startWorkoutButton]} onPress={handleStartWorkoutButtonPress}>
-                    <Text>Start Workout</Text>
+                    <Text style={commonStyles.buttonText}>Start Workout</Text>
                 </TouchableOpacity>
             </SafeAreaView>
 
