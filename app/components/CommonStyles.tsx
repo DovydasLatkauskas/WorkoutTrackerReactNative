@@ -16,6 +16,12 @@ const commonStyles = StyleSheet.create({
     buttonText: {
         color:primaryColor,
         fontWeight:"bold"
+    },
+    topBar: {
+        fontSize: 45,
+        fontWeight: 'bold',
+        left: "10%",
+        paddingTop: "10%"
     }
 });
 export default commonStyles

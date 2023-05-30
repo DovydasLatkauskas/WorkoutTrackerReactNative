@@ -1,13 +1,12 @@
-import {Alert, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import commonStyles from "../components/CommonStyles";
+import StartWorkoutScreen from "./StartWorkoutScreen";
 import GreyLine from "../components/CommonComponents";
 
-interface StartWorkoutScreenProps {
-    navigation: any;
-}
-
-function StartWorkoutScreen(props:StartWorkoutScreenProps){
-    const handleAddExerciseButtonPress =  () => props.navigation.navigate("Exercises")
+function ExercisesScreen(){
+    const handleAddExerciseButtonPress = () => Alert.alert(
+        "Add Exercise", "will allow you to add an exercise to the workout",
+        [{text:"ok"}]) // temporary stand-in
 
     return(
         <ScrollView style={[commonStyles.container, localStyles.container]}>
@@ -15,10 +14,9 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
             <GreyLine/>
             <View style={{alignItems:"center"}}>
                 <TouchableOpacity style={[commonStyles.button, localStyles.exerciseTouchable]} onPress={handleAddExerciseButtonPress}>
-                    <Text style={commonStyles.buttonText}>Add Exercise</Text>
+                    <Text style={commonStyles.buttonText}>Exercise Name</Text>
                 </TouchableOpacity>
             </View>
-
         </ScrollView>
     )
 }
@@ -32,4 +30,4 @@ const localStyles = StyleSheet.create({
         width: "60%"
     }
 });
-export default StartWorkoutScreen;
+export default ExercisesScreen;
