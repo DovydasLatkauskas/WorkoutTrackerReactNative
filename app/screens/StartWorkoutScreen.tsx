@@ -20,6 +20,13 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
             <Text style={commonStyles.topBar}>Workout</Text>
             <GreyLine/>
             <View style={{alignItems:"center"}}>
+                <View style={{borderWidth:1}}>
+                    <Text>Exercise Name</Text>
+                    <Text>Set</Text>
+                    <Text>Weight</Text>
+                    <Text>Reps</Text>
+                    <Text>Time</Text>
+                </View>
                 <TouchableOpacity style={[commonStyles.button, localStyles.exerciseTouchable]} onPress={handleAddExerciseButtonPress}>
                     <Text style={commonStyles.buttonText}>Add Exercise</Text>
                 </TouchableOpacity>
@@ -31,7 +38,7 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
                 </TouchableOpacity>
                 <View style={localStyles.notesView}>
                     <Text>Notes:</Text>
-                    <View style={{ width: '80%' }}>
+                    <View style={{ width: '90%' }}>
                         <TextInput
                             style={localStyles.notes}
                             placeholder="Your notes here"
