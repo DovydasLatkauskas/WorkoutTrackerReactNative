@@ -14,12 +14,12 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
 
     return(
         <ScrollView style={[commonStyles.container, localStyles.container]}>
-            <Text style={commonStyles.topBar}>Workout</Text>
+            <Text style={commonStyles.topBar}>Past Workouts</Text>
             <GreyLine/>
             <View style={{alignItems:"center"}}>
                 <TouchableOpacity style={[commonStyles.button, localStyles.workoutTouchable]}
                                   onPress={handleCheckoutWorkoutButton}>
-                    <Text style={commonStyles.buttonText}>Add Exercise</Text>
+                    <Text style={commonStyles.buttonText}>Checkout Past Workout</Text>
                 </TouchableOpacity>
             </View>
         </ScrollView>
