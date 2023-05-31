@@ -11,11 +11,12 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
     const handleCheckoutWorkoutButton =  () => Alert.alert(
         "Checkout workout", "will allow you to checkout the workout",
         [{text:"ok"}]) // temporary stand-in
-    const pastWorkouts = []
+    const pastWorkouts : Workout[] = [] // temporary
     return(
         <ScrollView style={[commonStyles.container, localStyles.container]}>
             <Text style={commonStyles.topBar}>Past Workouts</Text>
             <GreyLine/>
+            // TODO: FINISH FLATLIST
             <FlatList
                 data={pastWorkouts}
                 renderItem={({ item }) => <Text style={localStyles.workout}>{item.name}</Text>}
