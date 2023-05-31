@@ -14,3 +14,5 @@ function BottomTab(){
         </Tab.Navigator>
     )
 }
+
+export default BottomTab;
