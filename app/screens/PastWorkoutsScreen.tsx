@@ -12,12 +12,14 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
         "Checkout workout", "will allow you to checkout the workout",
         [{text:"ok"}]) // temporary stand-in
     const pastWorkouts : Workout[] = [] // temporary
+    // TODO: finish flatlist, add workout data, create database
+
     return(
-        <ScrollView style={[commonStyles.container, localStyles.container]}>
+        <View>
             <Text style={commonStyles.topBar}>Past Workouts</Text>
             <GreyLine/>
-            // TODO: FINISH FLATLIST
             <FlatList
+                style={[commonStyles.container, localStyles.container]}
                 data={pastWorkouts}
                 renderItem={({ item }) => <Text style={localStyles.workout}>{item.name}</Text>}
                 keyExtractor={(item) => item.id}
@@ -28,7 +30,7 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
                     <Text style={commonStyles.buttonText}>Checkout Past Workout</Text>
                 </TouchableOpacity>
             </View>
-        </ScrollView>
+        </View>
     )
 }
 
