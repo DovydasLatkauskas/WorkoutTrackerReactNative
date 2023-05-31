@@ -7,7 +7,7 @@ interface PastWorkoutsScreenProps {
 }
 
 function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
-    //const handleCheckoutWorkoutButton =  () => props.navigation.navigate("Exercises")
+    //const handleCheckoutWorkoutButton =  () => props.navigation.navigate("")
     const handleCheckoutWorkoutButton =  () => Alert.alert(
         "Checkout workout", "will allow you to checkout the workout",
         [{text:"ok"}]) // temporary stand-in
@@ -22,7 +22,6 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
                     <Text style={commonStyles.buttonText}>Add Exercise</Text>
                 </TouchableOpacity>
             </View>
-
         </ScrollView>
     )
 }
@@ -36,4 +35,4 @@ const localStyles = StyleSheet.create({
         width: "60%"
     }
 });
-export default StartWorkoutScreen;
+export default PastWorkoutsScreen;
