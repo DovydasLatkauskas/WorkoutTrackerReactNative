@@ -20,11 +20,6 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
             <Text style={commonStyles.topBar}>Workout</Text>
             <GreyLine/>
             <View style={{alignItems:"center"}}>
-                {/*
-                <WorkPeriod> { this is a custom component for an exercise or superset TODO: implement }
-
-                </WorkPeriod>
-                */}
                 <TouchableOpacity style={[commonStyles.button, localStyles.exerciseTouchable]} onPress={handleAddExerciseButtonPress}>
                     <Text style={commonStyles.buttonText}>Add Exercise</Text>
                 </TouchableOpacity>
@@ -34,15 +29,18 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
                 <TouchableOpacity style={[commonStyles.button, localStyles.button]} onPress={handleCancelWorkoutButtonPress}>
                     <Text style={commonStyles.buttonText}>Cancel Workout</Text>
                 </TouchableOpacity>
-                <View> {/* text area*/}
-                    <Text>Notes</Text>
-                    <TextInput editable
-                               multiline
-                               numberOfLines={4}
-                               maxLength={40}></TextInput>
+                <View style={localStyles.notesView}>
+                    <Text>Notes:</Text>
+                    <View style={{ width: '80%' }}>
+                        <TextInput
+                            style={localStyles.notes}
+                            placeholder="Your notes here"
+                            multiline={true}
+                            numberOfLines={4}
+                        />
+                    </View>
                 </View>
             </View>
-
         </ScrollView>
     )
 }
@@ -58,6 +56,18 @@ const localStyles = StyleSheet.create({
     button: {
         height: 50,
         width: "60%"
+    },
+    notesView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    notes: {
+        flexWrap: 'wrap',
+        borderColor: 'darkgray',
+        borderWidth: 1,
+        padding: 10,
+        textAlignVertical: 'top'
     }
 });
 export default StartWorkoutScreen;
