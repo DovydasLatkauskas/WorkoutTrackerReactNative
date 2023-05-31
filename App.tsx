@@ -1,4 +1,3 @@
-import AppNavigator from "./app/navigator";
 import {NavigationContainer} from "@react-navigation/native";
 import BottomTab from "./app/BottomTab";
 
