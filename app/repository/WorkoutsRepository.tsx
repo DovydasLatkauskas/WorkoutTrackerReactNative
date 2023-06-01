@@ -47,9 +47,19 @@ const removeWorkoutById = async (workoutId : string) => {
             await AsyncStorage.setItem('workouts', workoutsJson)
         }
     } catch (e) {
-        console.log("error storing workouts")
+        console.log("error removing workout")
         console.error(e)
     }
 }
 
-export { getWorkouts, getWorkout, storeWorkout, removeWorkoutById }
+const updateWorkout = async (workout : Workout) => {
+    try {
+        await removeWorkoutById(workout.id)
+        await storeWorkout(workout)
+    } catch (e) {
+        console.log("error updating workout")
+        console.error(e)
+    }
+}
+
+export { getWorkouts, getWorkout, storeWorkout, removeWorkoutById, updateWorkout }

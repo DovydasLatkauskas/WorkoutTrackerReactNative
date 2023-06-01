@@ -1,5 +1,11 @@
 import React from 'react';
-import {getWorkouts, getWorkout, storeWorkout, removeWorkoutById} from "../../app/repository/WorkoutsRepository";
+import {
+    getWorkouts,
+    getWorkout,
+    storeWorkout,
+    removeWorkoutById,
+    updateWorkout
+} from "../../app/repository/WorkoutsRepository";
 import Workout from "../../app/models/Workout";
 import PerformedSuperset from "../../app/models/PerformedSuperset";
 import PerformedExercise from "../../app/models/PerformedExercise";
@@ -38,5 +44,11 @@ describe('WorkoutRepository', () => {
         await removeWorkoutById("1")
         const workouts = await getWorkouts()
         expect(workouts).toEqual([])
+    });
+    it("testing updateWorkout", async () => {
+        await storeWorkout(workoutsTestData[0])
+        await updateWorkout(workoutsTestData[1])
+        const gotWorkout = await getWorkout("2")
+        expect(gotWorkout).toEqual(workoutsTestData[1])
     });
 });
