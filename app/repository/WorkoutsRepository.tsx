@@ -2,23 +2,33 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const storeWorkout = async (workout : Workout) => {
     try {
-        if (workout.id === null){
-            workout.createId()
-        }
-        const workoutJsonValue = JSON.stringify(workout)
-        await AsyncStorage.setItem(workout.id, workoutJsonValue)
+        const workoutsInDatabase = await getWorkouts()
+        // if workoutsInDatabase is NOT null then concat the new workout to the array, otherwise create a singleton array
+        const workouts : Workout[] = (workoutsInDatabase === null) ? [workout] : workoutsInDatabase.concat(workout)
+        const workoutsJson = JSON.stringify(workouts)
+        await AsyncStorage.setItem('workouts', workoutsJson)
     } catch (e) {
-        console.log("error storing data")
+        console.log("error storing workouts")
+        console.error(e)
     }
 }
 
-const getWorkout = async () => {
+const getWorkouts = async () => {
     try {
-        const jsonValue = await AsyncStorage.getItem('@key')
+        const jsonValue = await AsyncStorage.getItem('workouts')
         return jsonValue != null ? JSON.parse(jsonValue) : null
     } catch(e) {
-        // read error
+        console.log("error getting workouts from database")
+        console.error(e)
     }
+}
 
-    console.log('Done.')
+const getWorkout = async (id : string) => {
+    try {
+        const workouts : Workout[] = await getWorkouts()
+        return workouts.find((workout : Workout) => workout.id === id)
+    } catch(e) {
+        console.log("error getting workout from database")
+        console.error(e)
+    }
 }
