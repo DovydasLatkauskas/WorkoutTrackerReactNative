@@ -7,3 +7,5 @@ class PerformedSuperset {
         this.rests = rests;
     }
 }
+
+export default PerformedSuperset;

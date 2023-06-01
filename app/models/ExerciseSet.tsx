@@ -9,3 +9,5 @@ class ExerciseSet {
         this.time = time;
     }
 }
+
+export default ExerciseSet;

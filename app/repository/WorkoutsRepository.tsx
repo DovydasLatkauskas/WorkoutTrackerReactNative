@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Workout from "../models/Workout";
 
 const storeWorkout = async (workout : Workout) => {
     try {
@@ -26,9 +27,15 @@ const getWorkouts = async () => {
 const getWorkout = async (id : string) => {
     try {
         const workouts : Workout[] = await getWorkouts()
-        return workouts.find((workout : Workout) => workout.id === id)
+        if(workouts === null){
+            return null
+        }
+        const workout = workouts.find((workout : Workout) => workout.id === id)
+        return (workout !== undefined) ? workout : null
     } catch(e) {
         console.log("error getting workout from database")
         console.error(e)
     }
 }
+
+export { getWorkouts, getWorkout, storeWorkout }

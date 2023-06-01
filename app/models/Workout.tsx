@@ -22,3 +22,4 @@ class Workout {
         return uuidv4();
     }
 }
+export default Workout;

@@ -15,7 +15,7 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
     // TODO: finish flatlist, add workout data, create database
 
     return(
-        <View>
+        <View style={commonStyles.container}>
             <Text style={commonStyles.topBar}>Past Workouts</Text>
             <GreyLine/>
             <FlatList

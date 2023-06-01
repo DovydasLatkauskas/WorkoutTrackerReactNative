@@ -7,3 +7,5 @@ class PerformedExercise {
         this.sets = sets;
     }
 }
+
+export default PerformedExercise;
