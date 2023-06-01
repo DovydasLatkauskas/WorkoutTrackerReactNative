@@ -1,5 +1,5 @@
 import React from 'react';
-import {getWorkouts, getWorkout, storeWorkout} from "../../app/repository/WorkoutsRepository";
+import {getWorkouts, getWorkout, storeWorkout, removeWorkoutById} from "../../app/repository/WorkoutsRepository";
 import Workout from "../../app/models/Workout";
 import PerformedSuperset from "../../app/models/PerformedSuperset";
 import PerformedExercise from "../../app/models/PerformedExercise";
@@ -19,9 +19,9 @@ const workoutsTestData = [
 
 describe('WorkoutRepository', () => {
 
-    it("getWorkouts should return null", async () => {
+    it("getWorkouts should return []", async () => {
         const workouts = await getWorkouts()
-        expect(workouts).toBeNull()
+        expect(workouts).toEqual([])
     });
 
     it("getWorkout should return null", async () => {
@@ -33,5 +33,10 @@ describe('WorkoutRepository', () => {
         await storeWorkout(workoutsTestData[0])
         const gotWorkout = await getWorkout("1")
         expect(gotWorkout).toEqual(workoutsTestData[0])
+    });
+    it("testing removeWorkoutById and getWorkouts should return null", async () => {
+        await removeWorkoutById("1")
+        const workouts = await getWorkouts()
+        expect(workouts).toEqual([])
     });
 });

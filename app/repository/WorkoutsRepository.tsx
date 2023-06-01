@@ -17,7 +17,7 @@ const storeWorkout = async (workout : Workout) => {
 const getWorkouts = async () => {
     try {
         const jsonValue = await AsyncStorage.getItem('workouts')
-        return jsonValue != null ? JSON.parse(jsonValue) : null
+        return jsonValue != null ? JSON.parse(jsonValue) : []
     } catch(e) {
         console.log("error getting workouts from database")
         console.error(e)
@@ -38,4 +38,18 @@ const getWorkout = async (id : string) => {
     }
 }
 
-export { getWorkouts, getWorkout, storeWorkout }
+const removeWorkoutById = async (workoutId : string) => {
+    try {
+        const workoutsInDatabase = await getWorkouts()
+        if(workoutsInDatabase !== null){
+            const workouts = workoutsInDatabase.filter((workoutInDatabase : Workout) => workoutInDatabase.id !== workoutId)
+            const workoutsJson = JSON.stringify(workouts)
+            await AsyncStorage.setItem('workouts', workoutsJson)
+        }
+    } catch (e) {
+        console.log("error storing workouts")
+        console.error(e)
+    }
+}
+
+export { getWorkouts, getWorkout, storeWorkout, removeWorkoutById }
