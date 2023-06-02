@@ -1,3 +1,5 @@
+import PerformedSuperset from "./PerformedSuperset";
+
 const { v4: uuidv4 } = require('uuid');
 class Workout {
     id: string;
@@ -20,6 +22,14 @@ class Workout {
     }
     createId() {
         return uuidv4();
+    }
+
+    getDateString(){
+        return new Date(this.date).toLocaleDateString();
+    }
+
+    static compareByDate(a: Workout, b: Workout){
+        return (a.date > b.date) ? 1 : (b.date > a.date)? -1 : 0;
     }
 }
 export default Workout;

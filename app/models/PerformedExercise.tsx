@@ -1,3 +1,5 @@
+import ExerciseSet from "./ExerciseSet";
+
 class PerformedExercise {
     exerciseTemplateId: string;
     sets: ExerciseSet[];

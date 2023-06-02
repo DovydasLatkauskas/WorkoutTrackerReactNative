@@ -27,8 +27,10 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
             [new PerformedExercise("2", [new ExerciseSet(1,2,3)])],
             [1])], "notes 2", 4, 5)
     ];
-    const pastWorkouts : Workout[] = workoutsTestData // temporary
-    // TODO: finish flatlist, add workout data
+    const pastWorkouts : Workout[] = workoutsTestData.sort(Workout.compareByDate) // temporary
+    // TODO figure out how to handle sorting
+    // TODO: finish flatlist
+    // TODO: add a way of adding workouts through UI
 
     return(
         <View>
@@ -41,7 +43,7 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
                         <TouchableOpacity style={[commonStyles.button, localStyles.workoutTouchable]}
                                           onPress={handleCheckoutWorkoutButton}>
                             <Text style={commonStyles.buttonText}>{item.name}</Text>
-                            <Text style={commonStyles.buttonText}>{item.date}</Text>
+                            <Text style={commonStyles.buttonText}>{item.getDateString()}</Text>
                         </TouchableOpacity>
                     </View>
             }

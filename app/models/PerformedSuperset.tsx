@@ -1,3 +1,5 @@
+import PerformedExercise from "./PerformedExercise";
+
 class PerformedSuperset {
     performedExercises: PerformedExercise[];
     rests: number[]; // in seconds
