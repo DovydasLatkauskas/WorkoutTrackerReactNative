@@ -29,8 +29,9 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
     ];
     const pastWorkouts : Workout[] = workoutsTestData.sort(Workout.compareByDate) // temporary
     // TODO figure out how to handle sorting
-    // TODO: finish flatlist
+    // TODO: finish flatlist, styles
     // TODO: add a way of adding workouts through UI
+    // TODO: add a screen to view past workouts
 
     return(
         <View>
