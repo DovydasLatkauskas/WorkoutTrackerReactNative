@@ -37,18 +37,16 @@ function PastWorkoutsScreen(props:PastWorkoutsScreenProps){
             <FlatList
                 data={pastWorkouts}
                 renderItem={({ item }) =>
-                    <View>
-                        <Text style={localStyles.workout}>{item.name}</Text>
+                    <View style={{alignItems:"center"}}>
+                        <TouchableOpacity style={[commonStyles.button, localStyles.workoutTouchable]}
+                                          onPress={handleCheckoutWorkoutButton}>
+                            <Text style={commonStyles.buttonText}>{item.name}</Text>
+                            <Text style={commonStyles.buttonText}>{item.date}</Text>
+                        </TouchableOpacity>
                     </View>
             }
                 keyExtractor={(item) => item.id}
             />
-            <View style={{alignItems:"center"}}>
-                <TouchableOpacity style={[commonStyles.button, localStyles.workoutTouchable]}
-                                  onPress={handleCheckoutWorkoutButton}>
-                    <Text style={commonStyles.buttonText}>Checkout Past Workout</Text>
-                </TouchableOpacity>
-            </View>
         </View>
     )
 }
