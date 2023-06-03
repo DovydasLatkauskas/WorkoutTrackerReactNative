@@ -1,6 +1,8 @@
 import {Alert, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import commonStyles from "../components/CommonStyles";
 import GreyLine from "../components/CommonComponents";
+import Timer from "../components/RestStopwatch";
+import RestStopwatch from "../components/RestStopwatch";
 
 interface StartWorkoutScreenProps {
     navigation: any;
@@ -36,6 +38,7 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
                 <TouchableOpacity style={[commonStyles.button, localStyles.button]} onPress={handleCancelWorkoutButtonPress}>
                     <Text style={commonStyles.buttonText}>Cancel Workout</Text>
                 </TouchableOpacity>
+                <RestStopwatch/>
                 <View style={localStyles.notesView}>
                     <Text>Notes:</Text>
                     <View style={{ width: '90%' }}>
