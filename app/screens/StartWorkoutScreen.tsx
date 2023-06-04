@@ -5,7 +5,6 @@ import RestStopwatch from "../components/StartWorkoutScreen/RestStopwatch";
 import React from "react";
 import ExerciseView from "../components/StartWorkoutScreen/ExerciseView";
 import NotesView from "../components/StartWorkoutScreen/NotesView";
-import WorkoutTimer from "../components/StartWorkoutScreen/WorkoutTimer";
 
 interface StartWorkoutScreenProps {
     navigation: any;
@@ -38,7 +37,6 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
                 </TouchableOpacity>
                 <RestStopwatch/>
                 <NotesView></NotesView>
-                <WorkoutTimer></WorkoutTimer>
             </View>
         </ScrollView>
     )
