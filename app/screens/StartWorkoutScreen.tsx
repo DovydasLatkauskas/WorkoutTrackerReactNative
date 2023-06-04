@@ -1,14 +1,16 @@
-import {Alert, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import commonStyles from "../components/CommonStyles";
-import GreyLine from "../components/CommonComponents";
-import Timer from "../components/RestStopwatch";
-import RestStopwatch from "../components/RestStopwatch";
+import {GreyLine} from "../components/CommonComponents";
+import RestStopwatch from "../components/StartWorkoutScreen/RestStopwatch";
+import React from "react";
+import ExerciseView from "../components/StartWorkoutScreen/ExerciseView";
 
 interface StartWorkoutScreenProps {
     navigation: any;
 }
 
 function StartWorkoutScreen(props:StartWorkoutScreenProps){
+
     const handleAddExerciseButtonPress =  () => props.navigation.navigate("Exercises")
     const handleSaveWorkoutButtonPress =  () => Alert.alert(
         ":)", "TODO",
@@ -22,13 +24,7 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
             <Text style={commonStyles.topBar}>Workout</Text>
             <GreyLine/>
             <View style={{alignItems:"center"}}>
-                <View style={{borderWidth:1}}>
-                    <Text>Exercise Name</Text>
-                    <Text>Set</Text>
-                    <Text>Weight</Text>
-                    <Text>Reps</Text>
-                    <Text>Time</Text>
-                </View>
+                <ExerciseView></ExerciseView>
                 <TouchableOpacity style={[commonStyles.button, localStyles.exerciseTouchable]} onPress={handleAddExerciseButtonPress}>
                     <Text style={commonStyles.buttonText}>Add Exercise</Text>
                 </TouchableOpacity>

@@ -1,7 +1,7 @@
-import {Alert, Button, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {StatusBar} from "expo-status-bar";
 import commonStyles from "../components/CommonStyles";
-import GreyLine from "../components/CommonComponents";
+import {GreyLine} from "../components/CommonComponents";
 
 interface MainScreenProps {
     navigation: any;

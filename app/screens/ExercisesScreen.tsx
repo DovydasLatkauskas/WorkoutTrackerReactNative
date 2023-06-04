@@ -1,7 +1,6 @@
 import {Alert, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import commonStyles from "../components/CommonStyles";
-import StartWorkoutScreen from "./StartWorkoutScreen";
-import GreyLine from "../components/CommonComponents";
+import {GreyLine} from "../components/CommonComponents";
 
 function ExercisesScreen(){
     const handleAddExerciseButtonPress = () => Alert.alert(

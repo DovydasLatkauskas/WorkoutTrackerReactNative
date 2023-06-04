@@ -29,6 +29,7 @@ const Stopwatch: React.FC = () => {
 
     const handleReset = () => {
         setElapsedTime(0);
+        handleStop()
     };
 
     return (

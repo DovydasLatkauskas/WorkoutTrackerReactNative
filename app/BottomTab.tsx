@@ -2,7 +2,6 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import HomeScreen from "./screens/HomeScreen";
 import ExercisesScreen from "./screens/ExercisesScreen";
 import PastWorkoutsScreen from "./screens/PastWorkoutsScreen";
-import {createStackNavigator} from "@react-navigation/stack";
 import StartWorkoutScreen from "./screens/StartWorkoutScreen";
 import React from "react";
 

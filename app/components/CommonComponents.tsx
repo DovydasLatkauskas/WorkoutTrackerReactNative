@@ -21,4 +21,4 @@ const localStyles = StyleSheet.create({
         width: '80%'
     },
 });
-export default GreyLine;
+export {GreyLine};

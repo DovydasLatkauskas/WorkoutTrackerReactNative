@@ -1,6 +1,6 @@
-import {Alert, FlatList, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Alert, FlatList, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import commonStyles from "../components/CommonStyles";
-import GreyLine from "../components/CommonComponents";
+import {GreyLine} from "../components/CommonComponents";
 import Workout from "../models/Workout";
 import PerformedSuperset from "../models/PerformedSuperset";
 import PerformedExercise from "../models/PerformedExercise";
