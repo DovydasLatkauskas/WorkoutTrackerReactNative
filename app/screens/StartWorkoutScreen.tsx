@@ -4,6 +4,8 @@ import {GreyLine} from "../components/CommonComponents";
 import RestStopwatch from "../components/StartWorkoutScreen/RestStopwatch";
 import React from "react";
 import ExerciseView from "../components/StartWorkoutScreen/ExerciseView";
+import NotesView from "../components/StartWorkoutScreen/NotesView";
+import WorkoutTimer from "../components/StartWorkoutScreen/WorkoutTimer";
 
 interface StartWorkoutScreenProps {
     navigation: any;
@@ -35,17 +37,8 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
                     <Text style={commonStyles.buttonText}>Cancel Workout</Text>
                 </TouchableOpacity>
                 <RestStopwatch/>
-                <View style={localStyles.notesView}>
-                    <Text>Notes:</Text>
-                    <View style={{ width: '90%' }}>
-                        <TextInput
-                            style={localStyles.notes}
-                            placeholder="Your notes here"
-                            multiline={true}
-                            numberOfLines={4}
-                        />
-                    </View>
-                </View>
+                <NotesView></NotesView>
+                <WorkoutTimer></WorkoutTimer>
             </View>
         </ScrollView>
     )

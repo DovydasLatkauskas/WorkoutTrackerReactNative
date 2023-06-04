@@ -19,7 +19,10 @@ function WorkoutTimer(){
             }
         },
         [isRunning]
-        )
+        );
+    useEffect(()=>{
+        handleStart()
+    }, []);
 
     function handleStart(){
         setIsRunning(true)
@@ -34,11 +37,7 @@ function WorkoutTimer(){
 
     return(
         <View>
-            <Text>Rest Time: {elapsedTime}</Text>
-            <Button title={isRunning ? 'Stop' : 'Start'} onPress={isRunning ? handleStart : handleStop}></Button>
-            <Button title={'Reset'} onPress={handleReset}></Button>
+            <Text>Workout Time: {elapsedTime}</Text>
         </View>
     )
 }
-
-export default WorkoutTimer
