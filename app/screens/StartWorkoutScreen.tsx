@@ -2,7 +2,7 @@ import {Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} 
 import commonStyles from "../components/CommonStyles";
 import {GreyLine} from "../components/CommonComponents";
 import RestStopwatch from "../components/StartWorkoutScreen/RestStopwatch";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ExerciseView from "../components/StartWorkoutScreen/ExerciseView";
 import NotesView from "../components/StartWorkoutScreen/NotesView";
 
@@ -16,9 +16,47 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
     const handleSaveWorkoutButtonPress =  () => Alert.alert(
         ":)", "TODO",
         [{text:"ok"}]) // temporary stand-in
-    const handleCancelWorkoutButtonPress =  () => Alert.alert(
-        ":)", "TODO",
-        [{text:"ok"}]) // temporary stand-in
+    const handleCancelWorkoutButtonPress =  () => {
+        Alert.alert(
+            ":)", "TODO",
+            [{text: "ok"}]) // temporary stand-in}
+        handleReset()
+    }
+
+    const [elapsedTime, setElapsedTime] = useState(0)
+    const [isRunning, setIsRunning] = useState(false)
+
+    useEffect(()=>{
+            let intervalId: NodeJS.Timeout;
+
+            if (isRunning) {
+                intervalId = setInterval(() => {
+                    setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
+                }, 1000);
+            }
+
+            return () =>{
+                clearInterval(intervalId)
+            }
+        },
+        [isRunning]
+    );
+    useEffect(()=>{
+        if(!isRunning){
+            handleStart()
+        }
+    }, []); // TODO make it run when exerciseArray is updated
+
+    function handleStart(){
+        setIsRunning(true)
+    }
+    function handleStop(){
+        setIsRunning(false)
+    }
+    function handleReset() {
+        setElapsedTime(0)
+        handleStop()
+    }
 
     return(
         <ScrollView style={[commonStyles.container, localStyles.container]}>
@@ -37,6 +75,9 @@ function StartWorkoutScreen(props:StartWorkoutScreenProps){
                 </TouchableOpacity>
                 <RestStopwatch/>
                 <NotesView></NotesView>
+                <View>
+                    <Text>Workout Time: {elapsedTime}</Text>
+                </View>
             </View>
         </ScrollView>
     )

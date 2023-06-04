@@ -8,10 +8,9 @@ interface MainScreenProps {
 }
 
 function HomeScreen(props:MainScreenProps){
-const handleStartWorkoutButtonPress = () => props.navigation.navigate("Start Workout")
-// const handleStartWorkoutButtonPress = () => Alert.alert(
-//     "Start Workout", "should take you to the workout screen",
-//     [{text:"ok"}]) // temporary stand-in
+const handleStartWorkoutButtonPress = () => {
+    props.navigation.navigate("Start Workout")
+}
 
     return (
         <View style={commonStyles.container}>
